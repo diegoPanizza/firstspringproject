@@ -16,14 +16,12 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 
 @EqualsAndHashCode(of = "id")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Setter
 @Entity
 @Table(name = "tb_user")
 public class User  implements Serializable{
@@ -46,6 +44,26 @@ public class User  implements Serializable{
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
+		this.password = password;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public void setPassword(String password) {
 		this.password = password;
 	}
 	
