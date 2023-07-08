@@ -1,19 +1,20 @@
 package com.coursejavaspring.myfirstproject.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Transient;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @EqualsAndHashCode(of = "id")
 @Entity
@@ -26,7 +27,13 @@ public class Category implements Serializable{
 	private Long id;
 	private String nome;
 	
-	//private List<Product> products;
+	@Transient
+	private Set<Product> products = new HashSet<>();
+	
+	public Category(Long id, String nome) {
+		this.id = id;
+		this.nome = nome;
+	}	
 
 	public void setId(Long id) {
 		this.id = id;
@@ -35,6 +42,4 @@ public class Category implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	
 }
