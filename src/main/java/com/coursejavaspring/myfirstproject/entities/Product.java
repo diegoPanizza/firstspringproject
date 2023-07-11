@@ -37,9 +37,9 @@ public class Product implements Serializable {
 
 	@ManyToMany
 	@JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
-	@JsonIgnore
-	private Set<Category> categories = new HashSet<>();
 	
+	private Set<Category> categories = new HashSet<>();
+	@JsonIgnore
 	@OneToMany(mappedBy = "id.product")
 	private Set<OrderItem> items = new HashSet<>();
 
